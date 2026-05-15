@@ -43,14 +43,11 @@ function formatTanggal(tanggal) {
 function getStatusClass(status) {
   if (!status) return "status-bad";
 
-  const s = status.toLowerCase();
+  const s = status.toLowerCase().trim();
 
-  if (s.status === "memenuhi") {
+  if (s.includes("memenuhi") && !s.includes("belum")) {
     return "status-ok";
   }
-//   if ( s.includes("belum memenuhi")) {
-//     return "status-bad";
-//   }
 
   return "status-bad";
 }
