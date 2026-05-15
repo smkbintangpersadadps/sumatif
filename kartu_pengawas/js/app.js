@@ -169,7 +169,7 @@ function renderKartu(g, jadwal) {
         </div>
         </div>
       <button class="btn-popup" onclick="openImagePopup()">
-        Lihat Panduan
+        Lihat Full Jadwal
       </button>
 
       <div class="jadwal">
