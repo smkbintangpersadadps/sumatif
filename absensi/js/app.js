@@ -361,7 +361,7 @@ function goToMainMenu(){
 
   confirmCallback = function(){
 
-    window.location.href = "/";
+    window.location.href = "/sumatif";
   };
 
   document
