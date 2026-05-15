@@ -271,7 +271,7 @@ async function tampilkanKartu(s) {
           s.status.toLowerCase().includes("belum memenuhi")
             ? `
               <div class="admin-warning">
-                ⚠ Silakan Menghubungi Admin / TU
+                ⚠ Silakan Menghubungi Admin / FO
               </div>
             `
             : renderJadwal(jadwal)
