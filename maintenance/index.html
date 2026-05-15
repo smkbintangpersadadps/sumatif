@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Maintenance</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #4f46e5, #06b6d4, #6366f1, #3b82f6);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="icon">🚧</div>
+  <h1>Website Sedang Maintenance</h1>
+  <p>
+    Mohon maaf atas ketidaknyamanan ini.<br>
+    Kami sedang melakukan perbaikan sistem untuk meningkatkan layanan.<br><br>
+    Silakan kembali beberapa saat lagi.
+  </p>
+
+  <div class="footer">
+    © 2026 SMK Bintang Persada Denpasar
+  </div>
+</div>
+
+</body>
+</html>

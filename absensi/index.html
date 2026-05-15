@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Absensi Ujian</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co.com/sdV75wcH/Logo.png">
+
+  <link rel="stylesheet" href="/absensi/css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+<div class="page-shell">
+  <div class="page-content">
+
+    <div class="page-wrap">
+
+      <div class="brand">
+      <img class="logo" src="https://i.ibb.co.com/sdV75wcH/Logo.png" alt="Logo">
+        <div>
+          <h1 class="title">ABSENSI</h1>
+          <h1 class="title">SUMATIF AKHIR SEMESTER GENAP</h1>
+        <div class="subtitle">SMK Bintang Persada Denpasar</div>
+      </div>
+    </div>
+
+      <!-- FILTER -->
+      <div class="filter">
+
+        <input type="date" id="tanggal">
+
+        <div class="autocomplete">
+          <input
+            type="text"
+            id="ruangan"
+            placeholder="Cari Ruangan..."
+            onkeyup="filterRuangan()"
+          >
+
+          <div id="ruanganList" class="autocomplete-list"></div>
+        </div>
+        <select id="sesi">
+            <option value="">Pilih Sesi</option>
+            <option value="1">Sesi 1 Pagi</option>
+            <option value="2">Sesi 2 Pagi</option>
+            <option value="3">Sesi 3 Pagi</option>
+            <option value="4">Sesi 1 Siang</option>
+            <option value="5">Sesi 2 Siang</option>
+            <option value="6">Sesi 3 Siang</option>
+        </select>
+
+        <button onclick="loadData()">Tampilkan</button>
+
+      </div>
+
+      <!-- INFO -->
+      <div class="info" id="infoBox"></div>
+
+      <!-- ACTION -->
+      <div class="action">
+        <button onclick="setAll('Hadir')">
+          ✔ Semua Hadir
+        </button>
+
+        <button onclick="setAll('')">
+          🔄 Reset
+        </button>
+      </div>
+
+      <!-- TABLE -->
+      <div id="tableContainer"></div>
+       <div class="actions">
+      <!-- SIMPAN -->
+      <button type="button" class="btn-primary" onclick="simpan()">
+       💾 Simpan
+      </button>
+
+      <!-- BACK -->
+      <button
+        type="button"
+        class="btn-back"
+        onclick="goToMainMenu()"
+      >
+        ⬅ Kembali
+      </button>
+      </div>
+
+        <footer class="footer-minimal">
+          <div class="footer-inner">
+            <strong>© 2026 SMK Bintang Persada Denpasar</strong>
+            <span class="footer-sub">Sistem Informasi Online - SAS GENAP</span>
+          </div>
+        </footer>
+    </div>
+
+  </div>
+</div>
+
+<!-- LOADING -->
+<div id="loading" class="loading">
+  <div class="spinner"></div>
+  <p>Mohon tunggu sebentar...</p>
+</div>
+
+<div id="confirmModal" class="confirm-overlay">
+
+  <div class="confirm-box">
+
+    <div class="confirm-icon">⚠️</div>
+
+    <h3>Yakin ingin kembali?</h3>
+
+    <p>
+      Data yang belum disimpan akan hilang.
+    </p>
+
+    <div class="confirm-actions">
+
+      <button class="btn-cancel" onclick="closeConfirm(false)">
+        Batal
+      </button>
+
+      <button class="btn-ok" onclick="closeConfirm(true)">
+        Ya, Kembali
+      </button>
+      
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/absensi/js/app.js"></script>
+
+</body>
+</html>

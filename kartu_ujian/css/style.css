@@ -1,0 +1,674 @@
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 12px;
+        overflow-x: hidden;
+        /* penting: cegah geser kanan */
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    /* CONTAINER */
+    .container {
+        width: 100%;
+        max-width: 420px;
+        /* diperkecil biar aman di HP */
+        margin: auto;
+    }
+
+    /* INPUT */
+    input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    /* RESULT */
+    .result {
+        margin-top: 8px;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .result div {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    .result div:last-child {
+        border-bottom: none;
+    }
+
+    .result div:hover {
+        background: #f1f1f1;
+    }
+
+    .jadwal-row.today {
+        background: #dcfce7 !important;
+        /* hijau muda */
+        font-weight: bold;
+    }
+
+    /* optional: garis kiri biar lebih kelihatan */
+    .jadwal-row.today div:first-child {
+        border-left: 4px solid #16a34a;
+    }
+
+    .badge-hari {
+        display: inline-block;
+        background: #16a34a;
+        color: white;
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 6px;
+        margin-left: 4px;
+        animation: glowHijau 1.5s infinite;
+    }
+
+    /* CARD */
+    .card {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 2px solid #000;
+        background: white;
+    }
+
+    /* HEADER */
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background: #2d89ef;
+        /* 🔵 warna utama */
+        color: white;
+        /* teks putih */
+        border-bottom: 2px solid #000;
+    }
+
+    .header-text h4,
+    .header-text p,
+    .title {
+        color: white;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        flex-shrink: 0;
+        /* biar tidak ketekan */
+    }
+
+    .header-text {
+        flex: 1;
+        min-width: 0;
+        /* penting untuk text wrap */
+    }
+
+    .header-text h4 {
+        margin: 0;
+        font-size: 14px;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .header-text p {
+        margin: 0;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        margin-top: 4px;
+    }
+
+    /* BODY (WARNA BERBEDA) */
+    .card-body {
+        padding: 12px;
+        background: #f9fafb;
+        /* abu lembut */
+    }
+
+    /* ROW */
+    .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 6px 0;
+        font-size: 13px;
+        padding: 6px 8px;
+        border-radius: 6px;
+    }
+
+    /* striping biar keren */
+    .row:nth-child(odd) {
+        background: #ffffff;
+    }
+
+    .row:nth-child(even) {
+        background: #eef2f7;
+    }
+
+    /* label kiri */
+    .label {
+        font-weight: bold;
+        flex: 0 0 40%;
+    }
+
+    /* value kanan */
+    .value {
+        flex: 1;
+        text-align: right;
+        word-break: break-word;
+        /* penting untuk nama panjang */
+    }
+
+    /* QR */
+    .qr {
+        text-align: center;
+        padding: 12px;
+        border-top: 1px dashed #000;
+        background: #ffffff;
+    }
+
+    .qr img {
+        width: 100px;
+        max-width: 100%;
+    }
+
+    .jadwal {
+        padding: 10px;
+        border-top: 2px solid #000;
+        background: #ffffff;
+    }
+
+    .jadwal h4 {
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    /* tabel utama */
+    .jadwal-table {
+        width: 100%;
+        font-size: 12px;
+        border: 1px solid #000;
+        /* border luar tetap solid */
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    /* HEADER (tetap solid) */
+    .jadwal-header {
+        display: grid;
+        grid-template-columns: 30px 1fr 1fr 1.5fr 1fr;
+        background: #2d89ef;
+        color: white;
+        font-weight: bold;
+    }
+
+    .jadwal-header div {
+        padding: 6px;
+        border-right: 1px solid #000;
+        text-align: center;
+    }
+
+    .jadwal-header div:last-child {
+        border-right: none;
+    }
+
+    /* ROW DATA */
+    .jadwal-row {
+        display: grid;
+        grid-template-columns: 30px 1fr 1fr 1.5fr 1fr;
+    }
+
+    /* ISI DATA → DASHED */
+    .jadwal-row div {
+        padding: 6px;
+        border-top: 1px dashed #555;
+        /* ⬅️ garis putus-putus horizontal */
+        border-right: 1px dashed #555;
+        /* ⬅️ garis putus-putus vertikal */
+    }
+
+    /* hilangkan garis kanan terakhir */
+    .jadwal-row div:last-child {
+        border-right: none;
+    }
+
+    /* zebra */
+    .jadwal-row:nth-child(even) {
+        background: #f9fafb;
+    }
+
+    /* text aman */
+    .jadwal-header div,
+    .jadwal-row div {
+        word-break: break-word;
+    }
+
+    /* kosong */
+    .jadwal-kosong {
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+    }
+
+    /* kolom No (kolom ke-1) */
+    .jadwal-header div:nth-child(1),
+    .jadwal-row div:nth-child(1) {
+        text-align: center;
+    }
+
+    /* kolom No (kolom ke-1) */
+    .jadwal-header div:nth-child(3),
+    .jadwal-row div:nth-child(3) {
+        text-align: center;
+    }
+
+    .loading {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+    }
+
+    .btn-link {
+        background: #2d89ef;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        text-decoration: none;
+        /* textContent: center; */
+    }
+
+    .no-link {
+        color: #999;
+        font-size: 11px;
+        font-style: italic;
+    }
+
+    /* container biar center */
+    .link-cell {
+        display: flex;
+        justify-content: center;
+        /* tengah horizontal */
+        align-items: center;
+        /* tengah vertical */
+    }
+
+    /* style umum */
+    /* base (biar konsisten posisi) */
+    .link-btn {
+        display: inline-block;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    /* ✅ LINK AKTIF (LEBIH BESAR) */
+    .link-btn.aktif {
+        background: #16a34a;
+        color: white;
+        font-size: 13px;
+        /* ⬆️ BESAR */
+        padding: 8px 12px;
+        /* ⬆️ BESAR */
+        /* min-width: 80px; */
+    }
+
+    /* ❌ NONAKTIF (LEBIH KECIL) */
+    .link-btn.nonaktif {
+        background: #e5e7eb;
+        color: #888;
+        font-size: 11px;
+        /* ⬇️ KECIL */
+        padding: 4px 8px;
+        /* ⬇️ KECIL */
+        cursor: not-allowed;
+    }
+
+    .loading.show {
+        display: flex;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ddd;
+        border-top: 4px solid #2d89ef;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .loading p {
+        color: white;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .row.hidden-row {
+        display: none !important;
+    }
+
+    .value {
+        text-align: right;
+    }
+
+    /* badge status */
+    .status {
+        display: inline-block;
+        /* ⬅️ penting */
+        padding: 3px 8px;
+        border-radius: 6px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        width: fit-content;
+        /* ⬅️ biar pas teks */
+    }
+
+    /* warna */
+    .status-ok {
+        background: #16a34a;
+    }
+
+    .status-bad {
+        background: #dc2626;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* EXTRA SMALL DEVICE */
+    @media (max-width: 360px) {
+        .container {
+            max-width: 100%;
+        }
+
+        .row {
+            font-size: 12px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .jadwal-table {
+            font-size: 11px;
+        }
+
+        .jadwal-header,
+        .jadwal-row {
+            grid-template-columns: 25px 1fr 1.2fr 1fr 1fr;
+        }
+    }
+
+    /* animasi berkedip */
+    @keyframes glowHijau {
+        0% {
+            box-shadow: 0 0 0px #16a34a;
+            opacity: 1;
+        }
+
+        50% {
+            box-shadow: 0 0 10px #16a34a;
+            opacity: 0.5;
+        }
+
+        100% {
+            box-shadow: 0 0 0px #16a34a;
+            opacity: 1;
+        }
+    }
+
+    .link-btn.aktif {
+        animation: glowHijau 1.5s infinite;
+    }
+
+    /* 
+    .jenis-text {
+        color: #2563eb;
+        /* biru 
+        font-weight: 600;
+    } */
+
+    /* .jenis-text {
+        display: inline-block;
+        margin-top: 4px;
+        padding: 2px 8px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: bold;
+    } */
+    .mapel-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .mapel-title {
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .badge-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    /* Badge Jenis */
+    .jenis-text {
+        display: inline-block;
+        padding: 2px 8px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: bold;
+
+    }
+
+    /* Badge Guru */
+    .guru-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        color: white;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.25);
+        margin-bottom: 2px;
+    }
+
+    /* Badge Guru */
+    .mapel-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        background: linear-gradient(135deg, #ff8f27, #f0ad1c);
+        color: white;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.25);
+        margin-bottom: 2px;
+    }
+
+
+    .link-btn.tunggu {
+        background: #f59e0b;
+        color: white;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .link-btn.selesai {
+        background: #16a34a;
+        color: white;
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .link-btn.terlewat {
+        background: #dc2626;
+        color: white;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .tatib-btn {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 14px;
+        animation: glowHijau 1.5s infinite;
+    }
+
+    .tatib-btn:hover {
+        transform: scale(1.03);
+    }
+
+    /* MODAL */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+    }
+
+    .modal-content {
+        background: white;
+        width: 100%;
+        max-width: 700px;
+        border-radius: 16px;
+        padding: 20px;
+        position: relative;
+        max-height: 90vh;
+        overflow: auto;
+    }
+
+    .close-modal {
+        position: absolute;
+        right: 18px;
+        top: 12px;
+        font-size: 28px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .custom-popup {
+        border-radius: 18px;
+        padding: 20px;
+    }
+
+    .popup-logo {
+        width: 70px;
+        margin-bottom: 10px;
+    }
+
+    .popup-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #003366;
+        margin-bottom: 15px;
+    }
+
+    .popup-content {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+        text-align: left;
+    }
+
+    .popup-footer {
+        margin-top: 15px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #16a34a;
+        text-align: center;
+    }
+
+    .tatib-link-btn {
+        display: inline-block;
+        background: #2563eb;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .admin-warning {
+        text-align: center;
+        padding: 18px;
+        border-radius: 12px;
+        background: #fef2f2;
+        color: #dc2626;
+        font-weight: bold;
+        font-size: 15px;
+        border: 2px dashed #dc2626;
+        animation: blinkAdmin 1.2s infinite;
+    }
+
+    @keyframes blinkAdmin {
+        0% {
+            opacity: 1;
+            box-shadow: 0 0 0px rgba(220, 38, 38, 0.2);
+        }
+
+        50% {
+            opacity: 0.55;
+            box-shadow: 0 0 14px rgba(220, 38, 38, 0.45);
+        }
+
+        100% {
+            opacity: 1;
+            box-shadow: 0 0 0px rgba(220, 38, 38, 0.2);
+        }
+    }

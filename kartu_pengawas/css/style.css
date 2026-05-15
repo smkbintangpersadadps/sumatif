@@ -1,0 +1,559 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 12px;
+    overflow-x: hidden;
+    /* penting: cegah geser kanan */
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 420px;
+    /* diperkecil biar aman di HP */
+    margin: auto;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* RESULT */
+.result {
+    margin-top: 8px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.result div {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.result div:last-child {
+    border-bottom: none;
+}
+
+.result div:hover {
+    background: #f1f1f1;
+}
+
+/* CARD */
+.card {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid #000;
+    background: white;
+}
+
+/* HEADER */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #2d89ef;
+    /* 🔵 warna utama */
+    color: white;
+    /* teks putih */
+    border-bottom: 2px solid #000;
+}
+
+.header-text h4,
+.header-text p,
+.title {
+    color: white;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    flex-shrink: 0;
+    /* biar tidak ketekan */
+}
+
+.header-text {
+    flex: 1;
+    min-width: 0;
+    /* penting untuk text wrap */
+}
+
+.header-text h4 {
+    margin: 0;
+    font-size: 14px;
+    word-break: break-word;
+    text-align: center;
+}
+
+.header-text p {
+    margin: 0;
+    font-size: 13px;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.jadwal-row.today {
+    background: #dcfce7 !important;
+    /* hijau muda */
+    font-weight: bold;
+}
+
+/* animasi berkedip */
+@keyframes glowHijau {
+    0% {
+        box-shadow: 0 0 0px #16a34a;
+        opacity: 1;
+    }
+
+    50% {
+        box-shadow: 0 0 10px #16a34a;
+        opacity: 0.5;
+    }
+
+    100% {
+        box-shadow: 0 0 0px #16a34a;
+        opacity: 1;
+    }
+}
+
+.badge-hari {
+    display: inline-block;
+    background: #16a34a;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 4px;
+    animation: glowHijau 1.5s infinite;
+}
+
+.alert-elegan {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff7ed;
+    border: 1px solid #fdba74;
+    border-left: 5px solid #f97316;
+    color: #9a3412;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin: 14px auto;
+    max-width: 95%;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+    animation: fadePulse 2.5s infinite ease-in-out;
+}
+
+.alert-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f97316;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.alert-text {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    text-align: center;
+}
+
+@keyframes fadePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+    }
+
+    50% {
+        box-shadow: 0 6px 18px rgba(249, 115, 22, 0.18);
+    }
+}
+
+/* optional: garis kiri biar lebih kelihatan */
+.jadwal-row.today div:first-child {
+    border-left: 4px solid #16a34a;
+}
+
+/* BODY (WARNA BERBEDA) */
+.card-body {
+    padding: 12px;
+    background: #f9fafb;
+    /* abu lembut */
+}
+
+/* ROW */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 6px 0;
+    font-size: 13px;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+/* striping biar keren */
+.row:nth-child(odd) {
+    background: #ffffff;
+}
+
+.row:nth-child(even) {
+    background: #eef2f7;
+}
+
+/* label kiri */
+.label {
+    font-weight: bold;
+    flex: 0 0 40%;
+}
+
+/* value kanan */
+.value {
+    flex: 1;
+    text-align: right;
+    word-break: break-word;
+    /* penting untuk nama panjang */
+}
+
+/* QR */
+.qr {
+    text-align: center;
+    padding: 12px;
+    border-top: 1px dashed #000;
+    background: #ffffff;
+}
+
+.qr img {
+    width: 100px;
+    max-width: 100%;
+}
+
+.jadwal {
+    padding: 10px;
+    border-top: 2px solid #000;
+    background: #ffffff;
+}
+
+.jadwal h4 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* tabel utama */
+.jadwal-table {
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid #000;
+    /* border luar tetap solid */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* HEADER (tetap solid) */
+.jadwal-header {
+    display: grid;
+    grid-template-columns: 30px 85px 90px 45px 1fr;
+    background: #2d89ef;
+    color: white;
+    font-weight: bold;
+}
+
+.jadwal-header div {
+    padding: 6px;
+    border-right: 1px solid #000;
+    text-align: center;
+}
+
+.jadwal-header div:last-child {
+    border-right: none;
+}
+
+/* ROW DATA */
+.jadwal-row {
+    display: grid;
+    grid-template-columns: 30px 85px 90px 45px 1fr;
+}
+
+/* ISI DATA → DASHED */
+.jadwal-row div {
+    padding: 6px;
+    border-top: 1px dashed #555;
+    /* ⬅️ garis putus-putus horizontal */
+    border-right: 1px dashed #555;
+    /* ⬅️ garis putus-putus vertikal */
+}
+
+/* hilangkan garis kanan terakhir */
+.jadwal-row div:last-child {
+    border-right: none;
+}
+
+/* zebra */
+.jadwal-row:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* text aman */
+.jadwal-header div,
+.jadwal-row div {
+    word-break: break-word;
+}
+
+/* kosong */
+.jadwal-kosong {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* kolom No (kolom ke-1) */
+.jadwal-header div:nth-child(1),
+.jadwal-row div:nth-child(1) {
+    text-align: center;
+}
+
+/* kolom Sesi (4) & Ruang (5) rata tengah */
+.jadwal-header div:nth-child(3),
+.jadwal-header div:nth-child(4),
+.jadwal-header div:nth-child(5),
+.jadwal-row div:nth-child(3),
+.jadwal-row div:nth-child(4),
+.jadwal-row div:nth-child(5) {
+    text-align: center;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.loading.show {
+    display: flex;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #2d89ef;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading p {
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.row.hidden-row {
+    display: none !important;
+}
+
+.value {
+    text-align: right;
+}
+
+/* badge status */
+.status {
+    display: inline-block;
+    /* ⬅️ penting */
+    padding: 3px 8px;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: fit-content;
+    /* ⬅️ biar pas teks */
+}
+
+/* warna */
+.status-ok {
+    background: #16a34a;
+}
+
+.status-bad {
+    background: #dc2626;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* EXTRA SMALL DEVICE */
+@media (max-width: 360px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .row {
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .jadwal-table {
+        font-size: 11px;
+    }
+
+    .jadwal-header,
+    .jadwal-row {
+        grid-template-columns: 30px 85px 90px 45px 1fr;
+    }
+}
+
+.btn-popup {
+    background: #2d89ef;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 12px auto;
+    display: block;
+    transition: 0.3s;
+}
+
+.btn-popup:hover {
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.25s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 14px;
+    background: white;
+    padding: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 34px;
+    height: 34px;
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 34px;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.zoom-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.zoom-controls button {
+    background: #2d89ef;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.image-wrapper {
+    overflow: auto;
+    max-height: 80vh;
+    text-align: center;
+}
+
+#popupImage {
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+    max-width: 100%;
+}

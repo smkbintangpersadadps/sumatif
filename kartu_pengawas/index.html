@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartu Pengawas</title>
+  <link rel="stylesheet" href="/kartu_pengawas/css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h3><center>Kartu Pengawas</center></h3>
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Cari nama..."
+  >
+
+  <div id="result" class="result"></div>
+  <div id="cardContainer"></div>
+</div>
+
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close-modal" onclick="closeImagePopup()">&times;</span>
+
+    <div class="zoom-controls">
+      <button onclick="zoomIn()">+</button>
+      <button onclick="zoomOut()">−</button>
+      <button onclick="resetZoom()">Reset</button>
+    </div>
+
+    <div class="image-wrapper">
+      <img
+        id="popupImage"
+        src="/kartu_pengawas/JadwalPengawas.png"
+        alt="Jadwal Pengawas"
+      >
+    </div>
+
+  </div>
+</div>
+
+<div id="loading" class="loading">
+  <div class="spinner"></div>
+  <p>Memuat data...</p>
+</div>
+
+<script src="/kartu_pengawas/js/app.js"></script>
+</body>
+</html>

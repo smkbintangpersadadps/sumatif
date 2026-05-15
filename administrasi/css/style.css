@@ -1,0 +1,53 @@
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    padding: 22px 14px 30px;
+}
+
+.wrap {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    /* logo di atas */
+    align-items: center;
+    /* center horizontal */
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, .10);
+    display: block;
+    margin: 0 auto;
+    /* center */
+}
+
+.title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: .2px;
+}
+
+.subtitle {
+    margin: 4px 0 0;
+    opacity: .7;
+    font-size: 13px;
+}

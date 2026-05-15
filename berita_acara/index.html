@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Berita Acara</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+  <!-- ICON -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co.com/sdV75wcH/Logo.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+  <link rel="stylesheet" href="/berita_acara/css/style.css">
+  
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="brand">
+      <img class="logo" src="https://i.ibb.co.com/sdV75wcH/Logo.png" alt="Logo">
+        <div>
+          <h1 class="title">BERITA ACARA</h1>
+          <h1 class="title">SUMATIF AKHIR SEMESTER - GENAP</h1>
+        <div class="subtitle">SMK Bintang Persada Denpasar</div>
+      </div>
+    </div>
+    <div class="hero">
+      <h3>SAS - GENAP</h3>
+      <h2>Form Pengisian Berita Acara</h2>
+      <p>Isilah form dibawah untuk melengkapi Berita Acara.</p>
+    </div>
+  <div class="panel">
+    <hr>
+    <div class="grid">
+      <div class="field">
+        <label>Tanggal</label>
+        <input type="date"
+               id="tanggal"
+               class="form-control">
+      </div>
+
+      <div class="field">
+        <label>Sesi</label>
+        <select id="sesi"
+                class="form-control">
+
+          <option value="">Pilih</option>
+          <option value="1">Sesi 1 - Pagi</option>
+          <option value="2">Sesi 2 - Pagi</option>
+          <option value="3">Sesi 3 - Pagi</option>
+          <option value="4">Sesi 1 - Siang</option>
+          <option value="5">Sesi 2 - Siang</option>
+          <option value="6">Sesi 3 - Siang</option>
+
+        </select>
+      </div>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="field">
+            <label>Mata Pelajaran 1</label>
+            <select id="mapel1" class="form-control"></select>
+        </div>
+
+        <div class="field">
+            <label>Mata Pelajaran 2</label>
+            <select id="mapel2" class="form-control"></select>
+        </div>
+
+        <div class="field">
+            <label>Mata Pelajaran 3</label>
+            <select id="mapel3" class="form-control"></select>
+        </div>
+
+        <div class="field">
+            <label>Mata Pelajaran 4</label>
+            <select id="mapel4" class="form-control"></select>
+        </div>
+
+    </div>
+
+    <div class="grid">
+
+      <div class="field">
+        <label>Waktu Start</label>
+        <input type="time"
+               id="waktuStart"
+               class="form-control">
+      </div>
+
+     <div class="field">
+          
+            <label>Waktu End</label>
+            <input type="time"
+                id="waktuEnd"
+                class="form-control">
+          
+      </div>
+
+    </div>
+
+    <div class="grid">
+
+      <div class="field">
+            <label>Ruangan</label>
+            <select id="ruangan" class="form-control"></select>
+      </div>
+      <div class="field">
+            <label>Pengawas</label>
+            <select id="pengawas" class="form-control"></select>
+      </div>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="field">
+        <label>Jumlah Peserta Seharusnya</label>
+        <input type="number"
+               id="jumlah1"
+               class="form-control" placeholder="Hanya Angka">
+      </div>
+
+      <div class="field">
+        <label>Jumlah yang Tidak Hadir</label>
+        <input type="number"
+               id="jumlah2"
+               class="form-control" placeholder="Hanya Angka">
+      </div>
+
+      <div class="field">
+        <label>Jumlah Peserta yang Hadir</label>
+        <input type="number"
+             id="jumlah3"
+             class="form-control" placeholder="Hanya Angka">
+        </div>
+
+    </div>
+
+    
+
+    <div class="mt-3">
+
+      <label>Catatan</label>
+
+      <textarea id="catatan"
+                class="form-control"></textarea>
+
+    </div>
+
+    <!-- SIGNATURE -->
+
+    <div class="mt-4">
+
+      <label>Tanda Tangan</label>
+        
+      <div class="signature-card"
+           onclick="openSignaturePad()">
+
+       <div class="signature-icon">✍️</div>
+          <div>
+            <div id="signatureTitle" class="signature-title">
+              Isi Tanda Tangan
+            </div>
+            <div class="signature-sub">
+              Tap untuk menandatangani
+            </div>
+          </div>
+      </div>
+
+      <div class="signature-preview-wrapper">
+          <img id="signaturePreview" class="signature-preview">
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <!-- SIMPAN -->
+      <button id="btnSubmit" class="primary" onclick="submitForm()">
+       💾 Simpan
+      </button>
+
+      <!-- BACK -->
+      <button
+        type="button"
+        class="btn-back"
+        onclick="goToMainMenu()"
+      >
+        ⬅ Kembali
+      </button>
+
+    </div>
+    
+    <div id="status" class="mt-3"></div>
+
+  </div>
+<footer class="footer-minimal">
+      <div class="footer-inner">
+        <strong>© 2026 SMK Bintang Persada Denpasar</strong>
+        <span class="footer-sub">Sistem Informasi Online - SAS GENAP</span>
+      </div>
+    </footer>
+</div>
+<!-- APP LOADING -->
+<div id="appLoading" class="app-loading">
+
+  <div class="app-loading-box">
+
+    <div class="app-spinner"></div>
+
+    <div class="app-loading-title">
+      Memuat Data...
+    </div>
+
+    <div class="app-loading-sub">
+      Mohon tunggu sebentar
+    </div>
+
+  </div>
+
+</div>
+
+<!-- LOADING OVERLAY -->
+<div id="loadingOverlay" class="loading-overlay">
+
+  <div class="loading-box">
+
+    <div class="spinner"></div>
+
+    <div class="loading-text">
+      Menyimpan data...
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MODAL -->
+
+<div id="signatureModal"
+     class="signature-overlay">
+
+  <div class="signature-box">
+
+    <h5>Tanda Tangan</h5>
+
+    <canvas id="signatureCanvas"></canvas>
+
+    <div class="mt-3">
+
+      <button class="btn btn-danger btn-sm"
+              onclick="clearSignature()">
+
+        Clear
+
+      </button>
+
+      <button class="btn btn-success btn-sm"
+              onclick="saveSignature()">
+
+        Simpan
+
+      </button>
+
+      <button class="btn btn-secondary btn-sm"
+              onclick="closeSignature()">
+
+        Tutup
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="confirmModal" class="confirm-overlay">
+
+  <div class="confirm-box">
+
+    <div class="confirm-icon">⚠️</div>
+
+    <h3>Yakin ingin kembali?</h3>
+
+    <p>
+      Data yang belum disimpan akan hilang.
+    </p>
+
+    <div class="confirm-actions">
+
+      <button class="btn-cancel" onclick="closeConfirm(false)">
+        Batal
+      </button>
+
+      <button class="btn-ok" onclick="closeConfirm(true)">
+        Ya, Kembali
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+<div id="toast" class="toast-notif"></div>
+
+<script src="/berita_acara/js/app.js"></script>
+</body>
+</html>
