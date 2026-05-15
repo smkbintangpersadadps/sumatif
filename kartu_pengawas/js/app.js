@@ -190,7 +190,7 @@ function closeImagePopup() {
 
 let zoomLevel = 1;
 
-function openImagePopup(imageSrc = "/kartu_pengawas/JadwalPengawas.png") {
+function openImagePopup(imageSrc = "/sumatif/kartu_pengawas/JadwalPengawas.png") {
     const img = document.getElementById("popupImage");
 
     img.src = imageSrc;
