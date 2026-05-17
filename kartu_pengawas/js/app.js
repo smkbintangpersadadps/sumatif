@@ -132,7 +132,7 @@ function renderKartu(g, jadwal) {
               ${isToday(j.tanggal) ? '<span class="badge-hari">Hari Ini</span>' : ''}
             </div>
             <div>${j.jam}</div>
-            <div>${j.sesi}</div>
+            <div>${formatSesi(j.sesi)}</div>
             <div>${j.ruangan}<br>
             ${
                   j.status && j.status.trim() !== "" && j.status !== "-"
@@ -227,3 +227,16 @@ function updateZoom() {
 }
 
 loadPengawas();
+
+function formatSesi(sesi) {
+  const sesiMap = {
+    1: "1 Pagi",
+    2: "2 Pagi",
+    3: "3 Pagi",
+    4: "1 Siang",
+    5: "2 Siang",
+    6: "3 Siang"
+  };
+
+  return sesiMap[sesi] || `Sesi ${sesi}`;
+}
