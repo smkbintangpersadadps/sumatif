@@ -237,6 +237,11 @@ async function tampilkanKartu(s) {
           </div>
 
           <div class="row">
+            <span class="label">Sesi</span>
+            <span class="value">${s.sesi}</span>
+          </div>
+
+          <div class="row">
             <span class="label">NIPD</span>
             <span class="value">${s.nipd}</span>
           </div>
