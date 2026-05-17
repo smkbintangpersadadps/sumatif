@@ -289,7 +289,7 @@ input {
 /* HEADER (tetap solid) */
 .jadwal-header {
     display: grid;
-    grid-template-columns: 30px 85px 90px 45px 1fr;
+    grid-template-columns: 30px 85px 90px 80px 1fr;
     background: #2d89ef;
     color: white;
     font-weight: bold;
@@ -308,7 +308,7 @@ input {
 /* ROW DATA */
 .jadwal-row {
     display: grid;
-    grid-template-columns: 30px 85px 90px 45px 1fr;
+    grid-template-columns: 30px 85px 90px 80px 1fr;
 }
 
 /* ISI DATA → DASHED */
@@ -449,7 +449,7 @@ input {
 
     .jadwal-header,
     .jadwal-row {
-        grid-template-columns: 30px 85px 90px 45px 1fr;
+        grid-template-columns: 30px 85px 90px 80px 1fr;
     }
 }
 
