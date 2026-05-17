@@ -8,7 +8,7 @@ let dataAbsen = [];
 window.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("tanggal").value =
-    new Date().toISOString().split("T")[0];
+    new Date().toLocaleDateString("en-CA");
 
   document.getElementById("sesi").value = "1";
 });
