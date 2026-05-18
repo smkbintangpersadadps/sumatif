@@ -313,14 +313,46 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Cek Status Ujian
+//LINK STATUS LINK SEBELUM NYA FIX TETAPI ERROR DI SAFARI TIDAK MUNCUL (TERLEWAT)
+// function getLinkStatus(j) {
+//   if (!j.link || j.link.trim() === "" || j.link === "-") {
+//     return "belum";
+//   }
+
+//   const now = new Date();
+//   const start = new Date(j.tanggalStart);
+//   const end = new Date(j.tanggalEnd);
+
+//   if (now < start) {
+//     return "belumMulai";
+//   }
+
+//   if (now >= start && now <= end) {
+//     return "aktif";
+//   }
+
+//   if (now > end && j.sudahAbsen) {
+//     return "selesai";
+//   }
+
+//   return "terlewat";
+// }
+
+//SARAN LINK TERBARU TESTER UNTUK SAFARI
 function getLinkStatus(j) {
   if (!j.link || j.link.trim() === "" || j.link === "-") {
     return "belum";
   }
 
   const now = new Date();
-  const start = new Date(j.tanggalStart);
-  const end = new Date(j.tanggalEnd);
+  const start = parseDateSafe(j.tanggalStart);
+  const end = parseDateSafe(j.tanggalEnd);
+
+  // safety guard iOS
+  if (!start || isNaN(start) || !end || isNaN(end)) {
+    console.log("INVALID DATE:", j.tanggalStart, j.tanggalEnd);
+    return "aktif"; // fallback aman
+  }
 
   if (now < start) {
     return "belumMulai";
