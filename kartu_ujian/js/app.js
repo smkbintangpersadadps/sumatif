@@ -339,6 +339,16 @@ document.addEventListener("DOMContentLoaded", () => {
 // }
 
 //SARAN LINK TERBARU TESTER UNTUK SAFARI
+
+function parseDateSafe(dateStr) {
+  if (!dateStr) return null;
+
+  // ubah format iOS-safe
+  const d = new Date(dateStr.replace(" ", "T"));
+
+  return isNaN(d.getTime()) ? null : d;
+}
+
 function getLinkStatus(j) {
   if (!j.link || j.link.trim() === "" || j.link === "-") {
     return "belum";
