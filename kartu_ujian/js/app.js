@@ -350,7 +350,7 @@ function parseDateSafe(dateStr) {
 }
 
 function getLinkStatus(j) {
-  if (!j.link || j.link.trim() === "" || j.link === "-") {
+  if (!j.link || j.link.trim() === "") {
     return "belum";
   }
 
@@ -392,7 +392,7 @@ function renderLinkButton(j) {
 
   switch (status) {
     case "belum":
-      return `<span class="link-btn nonaktif">⏳ Belum</span>`;
+      return `<span class="link-btn nonaktif">⏳ Paper</span>`;
 
     case "belumMulai":
       return `<span class="link-btn tunggu">🕒 Tunggu</span>`;
