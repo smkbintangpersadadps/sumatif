@@ -350,24 +350,13 @@ function parseDateSafe(dateStr) {
 }
 
 function getLinkStatus(j) {
-  
-
-  const now = new Date();
-  const start = parseDateSafe(j.tanggalStart);
-  const end = parseDateSafe(j.tanggalEnd);
-
-  if (!j.link || j.link.trim() === "" || now > end || j.sudahAbsen) {
-    return "selesai";
-  }
-   if (!j.link || j.link.trim() === "") {
+  if (!j.link || j.link.trim() === "" || j.link === "-") {
     return "belum";
   }
-   
-  // safety guard iOS
-  if (!start || isNaN(start) || !end || isNaN(end)) {
-    console.log("INVALID DATE:", j.tanggalStart, j.tanggalEnd);
-    return "aktif"; // fallback aman
-  }
+
+  const now = new Date();
+  const start = new Date(j.tanggalStart);
+  const end = new Date(j.tanggalEnd);
 
   if (now < start) {
     return "belumMulai";
@@ -382,6 +371,35 @@ function getLinkStatus(j) {
   }
 
   return "terlewat";
+}
+
+//render tombol
+function renderLinkButton(j) {
+  const status = getLinkStatus(j);
+  console.log("=== DEBUG LINK ===");
+  console.log("Mapel:", j.mapel);
+  console.log("Sudah Absen:", j.sudahAbsen);
+  console.log("Tanggal Start:", j.tanggalStart);
+  console.log("Tanggal End:", j.tanggalEnd);
+  console.log("Status:", status);
+  console.log("Data Full:", j);
+
+  switch (status) {
+    case "belum":
+      return `<span class="link-btn nonaktif">⏳ Belum</span>`;
+
+    case "belumMulai":
+      return `<span class="link-btn tunggu">🕒 Tunggu</span>`;
+
+    case "aktif":
+      return `<a href="${j.link}" target="_blank" class="link-btn aktif">▶ Buka</a>`;
+
+    case "selesai":
+      return `<span class="link-btn selesai">✓ Selesai</span>`;
+
+    case "terlewat":
+      return `<span class="link-btn terlewat">✕ Lewat</span>`;
+  }
 }
 
 //render tombol
