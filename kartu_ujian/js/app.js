@@ -350,17 +350,19 @@ function parseDateSafe(dateStr) {
 }
 
 function getLinkStatus(j) {
+  
+
+  const now = new Date();
+  const start = parseDateSafe(j.tanggalStart);
+  const end = parseDateSafe(j.tanggalEnd);
+
   if (!j.link || j.link.trim() === "" && now > end && j.sudahAbsen) {
     return "selesai";
   }
    if (!j.link || j.link.trim() === "") {
     return "belum";
   }
-
-  const now = new Date();
-  const start = parseDateSafe(j.tanggalStart);
-  const end = parseDateSafe(j.tanggalEnd);
-
+   
   // safety guard iOS
   if (!start || isNaN(start) || !end || isNaN(end)) {
     console.log("INVALID DATE:", j.tanggalStart, j.tanggalEnd);
