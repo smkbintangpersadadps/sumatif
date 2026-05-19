@@ -350,7 +350,10 @@ function parseDateSafe(dateStr) {
 }
 
 function getLinkStatus(j) {
-  if (!j.link || j.link.trim() === "") {
+  if (!j.link || j.link.trim() === "" && now > end && j.sudahAbsen) {
+    return "selesai";
+  }
+   if (!j.link || j.link.trim() === "") {
     return "belum";
   }
 
