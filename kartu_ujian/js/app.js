@@ -350,13 +350,26 @@ function parseDateSafe(dateStr) {
 }
 
 function getLinkStatus(j) {
-  if (!j.link || j.link.trim() === "" || j.link === "-") {
+  const linkKosong =
+    !j.link || j.link.trim() === "" || j.link === "-";
+
+  // jika sudah hadir walaupun link kosong → selesai
+  if (linkKosong && j.sudahAbsen) {
+    return "selesai";
+  }
+
+  // jika link kosong & belum hadir
+  if (linkKosong) {
     return "belum";
   }
 
   const now = new Date();
-  const start = new Date(j.tanggalStart);
-  const end = new Date(j.tanggalEnd);
+  const start = parseDateSafe(j.tanggalStart);
+  const end = parseDateSafe(j.tanggalEnd);
+
+  if (!start || !end) {
+    return "aktif";
+  }
 
   if (now < start) {
     return "belumMulai";
