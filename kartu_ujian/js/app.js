@@ -386,35 +386,6 @@ function renderLinkButton(j) {
 
   switch (status) {
     case "belum":
-      return `<span class="link-btn nonaktif">⏳ Belum</span>`;
-
-    case "belumMulai":
-      return `<span class="link-btn tunggu">🕒 Tunggu</span>`;
-
-    case "aktif":
-      return `<a href="${j.link}" target="_blank" class="link-btn aktif">▶ Buka</a>`;
-
-    case "selesai":
-      return `<span class="link-btn selesai">✓ Selesai</span>`;
-
-    case "terlewat":
-      return `<span class="link-btn terlewat">✕ Lewat</span>`;
-  }
-}
-
-//render tombol
-function renderLinkButton(j) {
-  const status = getLinkStatus(j);
-  console.log("=== DEBUG LINK ===");
-  console.log("Mapel:", j.mapel);
-  console.log("Sudah Absen:", j.sudahAbsen);
-  console.log("Tanggal Start:", j.tanggalStart);
-  console.log("Tanggal End:", j.tanggalEnd);
-  console.log("Status:", status);
-  console.log("Data Full:", j);
-
-  switch (status) {
-    case "belum":
       return `<span class="link-btn nonaktif">⏳ Paper</span>`;
 
     case "belumMulai":
