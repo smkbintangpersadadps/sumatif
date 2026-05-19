@@ -399,13 +399,13 @@ function renderLinkButton(j) {
 
   switch (status) {
     case "belum":
-      return `<span class="link-btn nonaktif">⏳ Paper</span>`;
+      return `<span class="link-btn nonaktif">📝 Paper</span>`;
 
     case "belumMulai":
-      return `<span class="link-btn tunggu">🕒 Tunggu</span>`;
+      return `<span class="link-btn tunggu">⏳ Tunggu</span>`;
 
     case "aktif":
-      return `<a href="${j.link}" target="_blank" class="link-btn aktif">▶ Buka</a>`;
+      return `<a href="${j.link}" target="_blank" class="link-btn aktif">🚀 Buka</a>`;
 
     case "selesai":
       return `<span class="link-btn selesai">✓ Selesai</span>`;
