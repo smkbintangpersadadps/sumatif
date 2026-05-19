@@ -356,7 +356,7 @@ function getLinkStatus(j) {
   const start = parseDateSafe(j.tanggalStart);
   const end = parseDateSafe(j.tanggalEnd);
 
-  if (!j.link || j.link.trim() === "" && now > end && j.sudahAbsen) {
+  if (!j.link || j.link.trim() === "" || now > end || j.sudahAbsen) {
     return "selesai";
   }
    if (!j.link || j.link.trim() === "") {
