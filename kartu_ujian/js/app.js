@@ -353,7 +353,15 @@ function getLinkStatus(j) {
   const linkKosong =
     !j.link || j.link.trim() === "" || j.link === "-";
 
+  const now = new Date();
+  const start = parseDateSafe(j.tanggalStart);
+  const end = parseDateSafe(j.tanggalEnd);
+
   // jika sudah hadir walaupun link kosong → selesai
+  if (linkKosong && now >= start && now <= end) {
+    return "belum";
+  }
+   
   if (linkKosong && j.sudahAbsen) {
     return "selesai";
   }
@@ -362,11 +370,7 @@ function getLinkStatus(j) {
   if (linkKosong) {
     return "belum";
   }
-
-  const now = new Date();
-  const start = parseDateSafe(j.tanggalStart);
-  const end = parseDateSafe(j.tanggalEnd);
-
+   
   if (!start || !end) {
     return "aktif";
   }
