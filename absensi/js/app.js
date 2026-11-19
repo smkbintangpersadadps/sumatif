@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // =====================
 const listRuangan = [
   "Classroom 1","Classroom 2","Classroom 3","Classroom 4","Classroom 5",
-  "Classroom 6","Classroom 7","Classroom 8","Classroom 9","Classroom 10"
+  "Classroom 6","Classroom 7","Classroom 8","Classroom 9","Classroom 10","Classroom 11","Classroom 12","Classroom 13"
 ];
 
 // =====================
